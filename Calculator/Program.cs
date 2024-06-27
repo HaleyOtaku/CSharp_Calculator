@@ -6,10 +6,11 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            int num1;
-            int num2;
+            //Changed ints to floats because floats will not round the tenths place up, and when dividing smaller nums by bigger nums an int will make it a whole number and therefore, inaccurate.
+            float num1;
+            float num2;
             string answer;
-            int result;
+            float result;
 
             Console.WriteLine("Hello, welcome to the calculator program!");
             Console.WriteLine("\nPlease enter your first number.");
@@ -22,10 +23,10 @@ namespace Calculator
             //bool - Stores true or false
             #endregion
             //Casting - Converting one data type to another, Readlines are always strings out of the box
-            num1 = Convert.ToInt32(Console.ReadLine());
+            num1 = float.Parse(Console.ReadLine());
 
             Console.WriteLine("\nPlease Enter your second number.");
-            num2 = Convert.ToInt32(Console.ReadLine());
+            num2 = float.Parse(Console.ReadLine());
 
             Console.WriteLine("\n\nWhat type of operation would you like to do?");
             Console.WriteLine("\nPlease enter...\n\na) Addition\ns) Subtraction\nm) Multiplication\nany other key) Division\n\n");
