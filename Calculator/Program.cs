@@ -30,26 +30,36 @@ namespace Calculator
 
             Console.WriteLine("\n\nWhat type of operation would you like to do?");
             Console.WriteLine("\nPlease enter...\n\na) Addition\ns) Subtraction\nm) Multiplication\nany other key) Division\n\n");
-            answer = Console.ReadLine();
+            answer = Console.ReadLine().ToLower();
 
-            if (answer.ToLower() == "a")
+            if (answer == "a")
             {
                 result = num1 + num2;
             }
-            else if (answer.ToLower() == "s")
+            else if (answer == "s")
             {
                 result = num1 - num2;
             }
-            else if (answer.ToLower() == "m")
+            else if (answer == "m")
             {
                 result = num1 * num2;
             }
             else
             {
-                result = num1 / num2;
+                //need to make the result different if the denominator is 0
+                //used turnary operator to see if the denominator == 0 and if it is, float.NaN(Not A Number) and we deal with it below in the next if,else statement
+                result = num2 == 0 ? float.NaN : num1 / num2;
             }
 
-            Console.WriteLine("\nThe result is " + result);
+            if (float.IsNaN(result))
+            {
+                Console.WriteLine("Cannot divide by 0!");
+            }
+            else
+            {
+                Console.WriteLine("\nThe result is " + result);
+            }
+
             Console.WriteLine("\n\nThank you for using the calculator program!\n");
 
             Console.ReadKey();
